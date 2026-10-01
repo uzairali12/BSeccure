@@ -39,10 +39,9 @@ const services = [
   { icon: LockKeyhole, title: "Data Privacy", tag: "Protect Your Digital Footprint.", desc: "Prevent data loss and build privacy practices that people can trust.", img: "/images/service-data-privacy.jpg" },
   { icon: Radar, title: "Threat Management", tag: "Stay Ahead of Threats.", desc: "Empower your organization to identify, manage and reduce cyber risk.", img: "/images/service-threat-management.jpg" },
   { icon: Eye, title: "Continuous Red Teaming", tag: "Stay Secure, Stay Ahead.", desc: "Uncover weaknesses before attackers do through realistic security testing.", img: "/images/service-red-teaming.jpg" },
-  { icon: Database, title: "Cloud Security Architecture", tag: "Cloud Defenses & Resilience.", desc: "Secure multi-cloud environments, IAM permissions, and automated compliance.", img: "/images/insight-cloud-security.jpg" },
-  { icon: Network, title: "Managed Operations", tag: "24/7 Incident Monitoring.", desc: "Proactive threat detection and rapid incident response for enterprise networks.", img: "/images/insight-managed-it-security.jpg" },
+  { icon: Database, title: "Cloud Security Architecture", tag: "Resilient Multi-Cloud Defense.", desc: "Design and implement secure cloud configurations, IAM policies, and compliance controls.", img: "/images/service-cloud-security.jpg" },
+  { icon: Network, title: "Managed Security Operations", tag: "24/7 SOC Incident Monitoring.", desc: "Proactive threat hunting, real-time telemetry analysis, and rapid incident isolation.", img: "/images/service-managed-soc.jpg" },
 ]
-
 const synergy = [
   { icon: UsersRound, title: "People", sub: "The First Line of Defense" },
   { icon: Network, title: "Process", sub: "Structured Security Protocols" },
@@ -73,9 +72,9 @@ const insights = [
   { title: "Secure Managed IT Security Services", desc: "In today’s evolving threat landscape, businesses need technology that can identify and respond to risk.", img: "/images/insight-managed-it-security.jpg" },
   { title: "Cloud Security: Protecting Your Data in the Digital Era", desc: "A modern cloud strategy needs identity, access and security controls working together.", img: "/images/insight-cloud-security.jpg" },
   { title: "Red Teaming Exercise: Simulating Real-World Cyber Attack", desc: "Red team exercises help organizations discover realistic attack paths and strengthen response.", img: "/images/insight-red-teaming.jpg" },
-  { title: "Zero Trust Architecture Strategy & Implementation", desc: "Why traditional perimeter security is failing and how Zero Trust models safeguard hybrid workforce data.", img: "/images/section-approach.jpg" },
-  { title: "Building a Cyber Resilient Organizational Culture", desc: "Developing continuous awareness programs and human firewall defense strategies across modern enterprises.", img: "/images/section-mission.jpg" },
-  { title: "Compliance & Data Governance Best Practices", desc: "Navigating UAE regional and global regulatory compliance standards including GDPR and local security frameworks.", img: "/images/service-data-privacy.jpg" },
+  { title: "Zero Trust Architecture Strategy & Implementation", desc: "Why traditional perimeter defenses fail and how Zero Trust identity frameworks secure hybrid environments.", img: "/images/insight-zero-trust.jpg" },
+  { title: "Building a Cyber Resilient Organizational Culture", desc: "Empowering employees with continuous threat awareness training to establish a human firewall.", img: "/images/insight-cyber-culture.jpg" },
+  { title: "Compliance & Data Governance Best Practices", desc: "Navigating UAE regional and international data protection regulations and security standards.", img: "/images/insight-compliance-governance.jpg" },
 ]
 
 const partners = [
@@ -94,7 +93,7 @@ const testimonials = [
   { name: "Michael T.", role: "Business Owner", text: "Highly knowledgeable team with practical guidance. Their recommendations focused on real business outcomes." },
   { name: "Tariq M.", role: "CISO, Financial Services", text: "The red teaming exercise revealed crucial attack vectors we had overlooked. Exceptional expertise and thorough reports." },
   { name: "Fatima A.", role: "Head of Infrastructure", text: "Seamless cloud security transition and compliance alignment. Their team feels like a natural extension of ours." },
-  { name: "David L.", role: "VP of Engineering", text: "Outstanding incident response and proactive monitoring. Highly recommend Bseccure for high-stakes enterprise protection." },
+  { name: "David L.", role: "VP of Engineering", text: "Outstanding incident response and proactive monitoring. Highly recommend Bseccure for enterprise protection." },
 ]
 
 /* ------------------------------ helpers ------------------------------ */
@@ -123,7 +122,6 @@ function Marquee({
     </span>
   ))
 
-  // Scales the duration proportionally with the repeated length so speed stays consistent
   const scaledDuration = duration * repeat
 
   return (
