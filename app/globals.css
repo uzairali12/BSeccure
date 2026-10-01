@@ -56,7 +56,7 @@ section[id] {
   margin-inline: auto;
 }
 .section {
-  padding-block: 96px;
+  padding-block: 16px;
 }
 .pink {
   color: var(--pink);
