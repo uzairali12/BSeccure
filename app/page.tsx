@@ -39,6 +39,8 @@ const services = [
   { icon: LockKeyhole, title: "Data Privacy", tag: "Protect Your Digital Footprint.", desc: "Prevent data loss and build privacy practices that people can trust.", img: "/images/service-data-privacy.jpg" },
   { icon: Radar, title: "Threat Management", tag: "Stay Ahead of Threats.", desc: "Empower your organization to identify, manage and reduce cyber risk.", img: "/images/service-threat-management.jpg" },
   { icon: Eye, title: "Continuous Red Teaming", tag: "Stay Secure, Stay Ahead.", desc: "Uncover weaknesses before attackers do through realistic security testing.", img: "/images/service-red-teaming.jpg" },
+  { icon: Database, title: "Cloud Security Architecture", tag: "Cloud Defenses & Resilience.", desc: "Secure multi-cloud environments, IAM permissions, and automated compliance.", img: "/images/insight-cloud-security.jpg" },
+  { icon: Network, title: "Managed Operations", tag: "24/7 Incident Monitoring.", desc: "Proactive threat detection and rapid incident response for enterprise networks.", img: "/images/insight-managed-it-security.jpg" },
 ]
 
 const synergy = [
@@ -71,6 +73,9 @@ const insights = [
   { title: "Secure Managed IT Security Services", desc: "In today’s evolving threat landscape, businesses need technology that can identify and respond to risk.", img: "/images/insight-managed-it-security.jpg" },
   { title: "Cloud Security: Protecting Your Data in the Digital Era", desc: "A modern cloud strategy needs identity, access and security controls working together.", img: "/images/insight-cloud-security.jpg" },
   { title: "Red Teaming Exercise: Simulating Real-World Cyber Attack", desc: "Red team exercises help organizations discover realistic attack paths and strengthen response.", img: "/images/insight-red-teaming.jpg" },
+  { title: "Zero Trust Architecture Strategy & Implementation", desc: "Why traditional perimeter security is failing and how Zero Trust models safeguard hybrid workforce data.", img: "/images/section-approach.jpg" },
+  { title: "Building a Cyber Resilient Organizational Culture", desc: "Developing continuous awareness programs and human firewall defense strategies across modern enterprises.", img: "/images/section-mission.jpg" },
+  { title: "Compliance & Data Governance Best Practices", desc: "Navigating UAE regional and global regulatory compliance standards including GDPR and local security frameworks.", img: "/images/service-data-privacy.jpg" },
 ]
 
 const partners = [
@@ -87,6 +92,9 @@ const testimonials = [
   { name: "Ahmed R.", role: "IT Director", text: "Bseccure helped us strengthen our security posture and gave the team highly professional guidance." },
   { name: "Sara K.", role: "Operations Manager", text: "Excellent consultancy and support. Their threat management services gave us better confidence in our security posture." },
   { name: "Michael T.", role: "Business Owner", text: "Highly knowledgeable team with practical guidance. Their recommendations focused on real business outcomes." },
+  { name: "Tariq M.", role: "CISO, Financial Services", text: "The red teaming exercise revealed crucial attack vectors we had overlooked. Exceptional expertise and thorough reports." },
+  { name: "Fatima A.", role: "Head of Infrastructure", text: "Seamless cloud security transition and compliance alignment. Their team feels like a natural extension of ours." },
+  { name: "David L.", role: "VP of Engineering", text: "Outstanding incident response and proactive monitoring. Highly recommend Bseccure for high-stakes enterprise protection." },
 ]
 
 /* ------------------------------ helpers ------------------------------ */
@@ -96,12 +104,38 @@ const testimonials = [
  * slides by exactly one copy, so the loop is seamless. Pauses on hover; the second copy is
  * hidden from assistive tech.
  */
-function Marquee({ children, duration = 40, reverse = false, className = "" }: { children: React.ReactNode; duration?: number; reverse?: boolean; className?: string }) {
+function Marquee({
+  children,
+  duration = 40,
+  reverse = false,
+  className = "",
+  repeat = 3,
+}: {
+  children: React.ReactNode
+  duration?: number
+  reverse?: boolean
+  className?: string
+  repeat?: number
+}) {
+  const repeatedContent = Array.from({ length: repeat }).map((_, i) => (
+    <span key={i} className="contents">
+      {children}
+    </span>
+  ))
+
+  // Scales the duration proportionally with the repeated length so speed stays consistent
+  const scaledDuration = duration * repeat
+
   return (
     <div className={`marquee ${className}`}>
-      <div className={`marquee-track ${reverse ? "is-reverse" : ""}`} style={{ ["--dur" as string]: `${duration}s` }}>
-        <div className="marquee-group">{children}</div>
-        <div className="marquee-group" aria-hidden="true">{children}</div>
+      <div
+        className={`marquee-track ${reverse ? "is-reverse" : ""}`}
+        style={{ ["--dur" as string]: `${scaledDuration}s` }}
+      >
+        <div className="marquee-group">{repeatedContent}</div>
+        <div className="marquee-group" aria-hidden="true">
+          {repeatedContent}
+        </div>
       </div>
     </div>
   )
