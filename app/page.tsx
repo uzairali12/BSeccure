@@ -35,18 +35,18 @@ const NAV = [
 ]
 
 const services = [
-  { icon: ShieldCheck, title: "Cyber Security", tag: "Fortify Your Digital Defense.", desc: "Fortify your digital defenses with practical protection built around your business.", img: "/images/service-cyber-security.jpg" },
-  { icon: LockKeyhole, title: "Data Privacy", tag: "Protect Your Digital Footprint.", desc: "Prevent data loss and build privacy practices that people can trust.", img: "/images/service-data-privacy.jpg" },
-  { icon: Radar, title: "Threat Management", tag: "Stay Ahead of Threats.", desc: "Empower your organization to identify, manage and reduce cyber risk.", img: "/images/service-threat-management.jpg" },
-  { icon: Eye, title: "Continuous Red Teaming", tag: "Stay Secure, Stay Ahead.", desc: "Uncover weaknesses before attackers do through realistic security testing.", img: "/images/service-red-teaming.jpg" },
-  { icon: Database, title: "Cloud Security Architecture", tag: "Resilient Multi-Cloud Defense.", desc: "Design and implement secure cloud configurations, IAM policies, and compliance controls.", img: "/images/service-cloud-security.jpg" },
-  { icon: Network, title: "Managed Security Operations", tag: "24/7 SOC Incident Monitoring.", desc: "Proactive threat hunting, real-time telemetry analysis, and rapid incident isolation.", img: "/images/service-managed-soc.jpg" },
+  { icon: ShieldCheck, title: "Cyber Security", tag: "Fortify Your Digital Defense.", desc: "Fortify your digital defenses with practical protection built around your business.", img: "/images/cyber-security-network.png" },
+  { icon: LockKeyhole, title: "Data Privacy", tag: "Protect Your Digital Footprint.", desc: "Prevent data loss and build privacy practices that people can trust.", img: "/images/data-privacy-vault.png" },
+  { icon: Radar, title: "Threat Management", tag: "Stay Ahead of Threats.", desc: "Empower your organization to identify, manage and reduce cyber risk.", img: "/images/threat-management-radar.png" },
+  { icon: Eye, title: "Continuous Red Teaming", tag: "Stay Secure, Stay Ahead.", desc: "Uncover weaknesses before attackers do through realistic security testing.", img: "/images/continuous-red-teaming.png" },
+  { icon: Database, title: "Cloud Security Architecture", tag: "Resilient Multi-Cloud Defense.", desc: "Design and implement secure cloud configurations, IAM policies, and compliance controls.", img: "/images/cloud-security-architecture.png" },
+  { icon: Network, title: "Managed Security Operations", tag: "24/7 SOC Incident Monitoring.", desc: "Proactive threat hunting, real-time telemetry analysis, and rapid incident isolation.", img: "/images/managed-security-operations.png" },
 ]
 const synergy = [
-  { icon: UsersRound, title: "People", sub: "The First Line of Defense" },
-  { icon: Network, title: "Process", sub: "Structured Security Protocols" },
-  { icon: Database, title: "Technology", sub: "State-of-the-Art Solutions" },
-  { icon: FileCheck2, title: "Regulation", sub: "Compliance & Accountability" },
+  { icon: UsersRound, title: "People", sub: "The First Line of Defense", desc: "Empowered teams turn everyday decisions into a measurable layer of protection." },
+  { icon: Network, title: "Process", sub: "Structured Security Protocols", desc: "Clear, repeatable workflows make security consistent across every part of your business." },
+  { icon: Database, title: "Technology", sub: "State-of-the-Art Solutions", desc: "Modern tools and intelligence give you the visibility to act before threats escalate." },
+  { icon: FileCheck2, title: "Regulation", sub: "Compliance & Accountability", desc: "Practical governance keeps risk, responsibility and compliance firmly in view." },
 ]
 
 const steps = [
@@ -68,14 +68,28 @@ const values = [
 
 const reasons = ["Simplified Approach", "Customer Centric Approach", "Competitive Prices", "Proven Track Record", "Experienced Consultants", "Compliance and Security", "Innovative Solutions", "Proactive Security Services"]
 
-const insights = [
-  { title: "Secure Managed IT Security Services", desc: "In today’s evolving threat landscape, businesses need technology that can identify and respond to risk.", img: "/images/insight-managed-it-security.jpg" },
-  { title: "Cloud Security: Protecting Your Data in the Digital Era", desc: "A modern cloud strategy needs identity, access and security controls working together.", img: "/images/insight-cloud-security.jpg" },
-  { title: "Red Teaming Exercise: Simulating Real-World Cyber Attack", desc: "Red team exercises help organizations discover realistic attack paths and strengthen response.", img: "/images/insight-red-teaming.jpg" },
-  { title: "Zero Trust Architecture Strategy & Implementation", desc: "Why traditional perimeter defenses fail and how Zero Trust identity frameworks secure hybrid environments.", img: "/images/insight-zero-trust.jpg" },
-  { title: "Building a Cyber Resilient Organizational Culture", desc: "Empowering employees with continuous threat awareness training to establish a human firewall.", img: "/images/insight-cyber-culture.jpg" },
-  { title: "Compliance & Data Governance Best Practices", desc: "Navigating UAE regional and international data protection regulations and security standards.", img: "/images/insight-compliance-governance.jpg" },
+const insightContent = [
+  { title: "Secure Managed IT Security Services", desc: "In today’s evolving threat landscape, businesses need technology that can identify and respond to risk.", img: "/images/generated/service-managed-soc-ui.png" },
+  { title: "Cloud Security: Protecting Your Data in the Digital Era", desc: "A modern cloud strategy needs identity, access and security controls working together.", img: "/images/generated/service-cloud-security-ui.png" },
+  { title: "Red Teaming Exercise: Simulating Real-World Cyber Attack", desc: "Red team exercises help organizations discover realistic attack paths and strengthen response.", img: "/images/generated/service-red-teaming-ui.png" },
+  { title: "Zero Trust Architecture Strategy & Implementation", desc: "Why traditional perimeter defenses fail and how Zero Trust identity frameworks secure hybrid environments.", img: "/images/generated/service-cyber-security-ui.png" },
+  { title: "Building a Cyber Resilient Organizational Culture", desc: "Empowering employees with continuous threat awareness training to establish a human firewall.", img: "/images/generated/governance-strategy-dashboard.png" },
+  { title: "Compliance & Data Governance Best Practices", desc: "Navigating UAE regional and international data protection regulations and security standards.", img: "/images/generated/service-data-privacy-ui.png" },
 ]
+
+const insightImages = [
+  "/images/managed-security-operations.png",
+  "/images/cloud-security-architecture.png",
+  "/images/continuous-red-teaming.png",
+  "/images/cyber-security-network.png",
+  "/images/governance-and-trust.png",
+  "/images/data-privacy-vault.png",
+] as const
+
+const insights = insightContent.map((post, index) => ({
+  ...post,
+  img: insightImages[index] ?? post.img,
+}))
 
 const partners = [
   { src: "/assets/BeyondTrust_logo.svg.png", name: "BeyondTrust", width: 1280, height: 367 },
@@ -88,12 +102,10 @@ const partners = [
 ]
 
 const testimonials = [
-  { name: "Ahmed R.", role: "IT Director", text: "Bseccure helped us strengthen our security posture and gave the team highly professional guidance." },
-  { name: "Sara K.", role: "Operations Manager", text: "Excellent consultancy and support. Their threat management services gave us better confidence in our security posture." },
-  { name: "Michael T.", role: "Business Owner", text: "Highly knowledgeable team with practical guidance. Their recommendations focused on real business outcomes." },
-  { name: "Tariq M.", role: "CISO, Financial Services", text: "The red teaming exercise revealed crucial attack vectors we had overlooked. Exceptional expertise and thorough reports." },
-  { name: "Fatima A.", role: "Head of Infrastructure", text: "Seamless cloud security transition and compliance alignment. Their team feels like a natural extension of ours." },
-  { name: "David L.", role: "VP of Engineering", text: "Outstanding incident response and proactive monitoring. Highly recommend Bseccure for enterprise protection." },
+  { id: "testimonial-1", text: "Choosing BSECCURE was one of the best decisions for our organization. Their commitment to excellence and proactive security measures have provided us with peace of mind. We're not just clients; we're partners in cybersecurity success." },
+  { id: "testimonial-2", text: "The personalized attention and expertise we receive from BSECCURE set them apart. Their red teaming exercises are thorough, revealing vulnerabilities we didn't even know existed. Grateful for the ongoing partnership in securing our business" },
+  { id: "testimonial-3", text: "Working with BSECCURE has been a game-changer for our business. Their expertise, dedication, and innovative solutions have significantly contributed to our success. We consider them a trusted partner in our journey." },
+  { id: "testimonial-4", text: "In the dynamic world of cybersecurity, you need a partner who not only understands the landscape but thrives in it. BSECCURE does just that. Their proactive approach to red teaming has made us feel more secure than ever before." },
 ]
 
 /* ------------------------------ helpers ------------------------------ */
@@ -263,22 +275,29 @@ export default function Home() {
       </section>
 
       {/* ------------------------------- about ------------------------------- */}
-      <section id="aboutus" className="section">
-        <div className="container grid items-start gap-12 lg:grid-cols-[1fr_1.25fr]">
-          <div>
+      <section id="aboutus" className="foundation-section section">
+        <div className="container foundation-layout">
+          <div className="foundation-intro">
             <div className="eyebrow">Our foundation</div>
             <h2 className="h2 mt-3">Our Synergy of Security</h2>
-            <p className="bodycopy mt-5">Our success is driven by one integrated approach that combines the strength of people, efficient processes, cutting-edge technology, and strong governance. This synergy allows us to provide top-tier services and solutions.</p>
+            <p className="bodycopy mt-5 max-w-xl">Our success is driven by one integrated approach that combines the strength of people, efficient processes, cutting-edge technology, and strong governance. This synergy allows us to provide top-tier services and solutions.</p>
+            <div className="foundation-stat">
+              <span className="foundation-stat-number">04</span>
+              <p><strong>One connected security posture.</strong> Every pillar strengthens the others, helping you protect what matters from every angle.</p>
+            </div>
+            <a href="#services" className="btn btn-outline mt-7">Explore our services <ArrowRight size={14} /></a>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {synergy.map((s) => (
-              <div className="card p-6" key={s.title}>
-                <s.icon className="pink" size={26} />
-                <h3 className="mt-5 text-sm font-extrabold">{s.title}:</h3>
-                <p className="mt-1 text-xs font-bold text-[#253144]">{s.sub}</p>
-                <p className="mt-3 text-[12px] leading-5 text-[#7a8492]">A practical security layer designed around measurable protection and accountability.</p>
-                <a href="#services" className="more-link mt-4">Read More <ArrowRight size={11} /></a>
-              </div>
+          <div className="foundation-grid">
+            {synergy.map((s, index) => (
+              <article className="foundation-card" key={s.title}>
+                <span className="foundation-card-number">0{index + 1}</span>
+                <div className="foundation-icon"><s.icon size={23} strokeWidth={1.8} /></div>
+                <p className="foundation-card-label">Security pillar</p>
+                <h3>{s.title}</h3>
+                <p className="foundation-card-sub">{s.sub}</p>
+                <p className="foundation-card-copy">{s.desc}</p>
+                <a href="#services" className="more-link foundation-card-link">Read More <ArrowRight size={12} /></a>
+              </article>
             ))}
           </div>
         </div>
@@ -287,8 +306,8 @@ export default function Home() {
       {/* ----------------------------- methodology ----------------------------- */}
       <section id="approach" className="dark-section mesh py-20">
         <div className="container grid items-center gap-12 lg:grid-cols-[.72fr_1.28fr]">
-          <div className="overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
-            <img src="/images/section-approach.jpg" className="h-[300px] w-full object-cover lg:h-[340px]" alt="Security analyst working" loading="lazy" decoding="async" />
+          <div className="relative aspect-[1.5625] overflow-hidden rounded-2xl border border-white/10 bg-[#edf6ff] shadow-2xl">
+            <Image src="/images/security-approach-lifecycle.png" alt="Security lifecycle illustration" fill sizes="(min-width: 1024px) 42vw, 100vw" className="object-contain" />
           </div>
           <div>
             <div className="eyebrow">Our methodology</div>
@@ -313,12 +332,12 @@ export default function Home() {
         <div className="container">
           <SectionHead eyebrow="Our services" title="Cutting Edge Services" copy="We’re committed to delivering innovative and technology-driven services that help businesses stay secure, resilient and ready for change." action={<a href="#contact" className="btn btn-outline">View All Services <ArrowRight size={14} /></a>} />
         </div>
-        <Marquee duration={46} className="mt-10">
+        <Marquee duration={52} className="mt-10">
           {services.map((s) => (
-            <article className="card group slide-card" key={s.title}>
-              <div className="relative aspect-[1.65] overflow-hidden">
-                <span className="icon-badge"><s.icon size={18} /></span>
-                <img src={s.img} alt={s.title} loading="lazy" decoding="async" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+            <article className="card group service-card slide-card" key={s.title}>
+              <div className="service-visual relative aspect-[1.5625] overflow-hidden bg-[#edf6ff]">
+              <span className="icon-badge"><s.icon size={18} /></span>
+                <Image src={s.img} alt={s.title} fill sizes="(min-width: 1024px) 340px, 82vw" className="service-visual-image object-contain" />
               </div>
               <div className="p-5">
                 <h3 className="text-base font-black">{s.title}</h3>
@@ -328,6 +347,8 @@ export default function Home() {
             </article>
           ))}
         </Marquee>
+        <div className="container">
+        </div>
       </section>
 
       {/* --------------------------- mission & vision --------------------------- */}
@@ -339,8 +360,8 @@ export default function Home() {
             <p className="mt-5 max-w-xl text-sm leading-7 text-white/70">Securing your digital frontier, Bseccure is on a mission to drive innovative cybersecurity, data protection, services and solutions.</p>
             <a href="#values" className="btn btn-pink mt-6">Learn More <ArrowRight size={14} /></a>
           </div>
-          <div className="overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
-            <img src="/images/section-mission.jpg" className="h-[260px] w-full object-cover" alt="Mission vision strategy" loading="lazy" decoding="async" />
+          <div className="relative aspect-[1.5625] overflow-hidden rounded-2xl border border-white/10 bg-[#edf6ff] shadow-2xl">
+            <Image src="/images/governance-and-trust.png" alt="Governance and trust illustration" fill sizes="(min-width: 1024px) 42vw, 100vw" className="object-contain" />
           </div>
         </div>
       </section>
@@ -387,18 +408,21 @@ export default function Home() {
       </section>
 
       {/* ----------------------------- testimonials ----------------------------- */}
-      <section className="section bg-[#f8fafc]">
-        <div className="container"><SectionHead eyebrow="Testimonials" title="What Our Clients Say" /></div>
-        <Marquee duration={44} reverse className="mt-10">
+      <section id="testimonials" className="section bg-[#f8fafc]">
+        <div className="container">
+          <SectionHead eyebrow="Testimonials" title="What Our Clients Say" />
+        </div>
+        <Marquee duration={54} reverse className="mt-10">
           {testimonials.map((t) => (
-            <article key={t.name} className="card slide-card testimonial p-7">
-              <Quote className="pink" size={26} />
-              <p className="mt-4 text-sm leading-6 text-[#4f5b6b]">{t.text}</p>
+            <article key={t.id} className="card testimonial slide-card flex flex-col p-8 text-center sm:p-10">
+              <Quote className="pink mx-auto" size={30} fill="currentColor" aria-hidden="true" />
+              <p className="mx-auto mt-6 max-w-lg text-[15px] leading-7 text-[#303b4b]">{t.text}</p>
               <div className="mt-5 text-[#ff9a00]" aria-label="5 out of 5 stars">★★★★★</div>
-              <div className="mt-4 border-t border-[#edf0f4] pt-4 text-xs font-extrabold">{t.name} <span className="ml-2 font-normal text-[#7b8594]">{t.role}</span></div>
             </article>
           ))}
         </Marquee>
+        <div className="container">
+        </div>
       </section>
 
       {/* ------------------------------ insights ------------------------------ */}
@@ -407,7 +431,7 @@ export default function Home() {
         <Marquee duration={50} className="mt-10">
           {insights.map((p) => (
             <article key={p.title} className="card group slide-card">
-              <div className="aspect-[2.2] overflow-hidden"><img src={p.img} alt={p.title} loading="lazy" decoding="async" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" /></div>
+              <div className="relative aspect-[1.5625] overflow-hidden bg-[#edf6ff]"><Image src={p.img} alt={p.title} fill sizes="(min-width: 1024px) 340px, 82vw" className="object-contain" /></div>
               <div className="p-5">
                 <h3 className="text-sm font-extrabold leading-5">{p.title}</h3>
                 <p className="mt-2 text-xs leading-5 text-[#7a8492]">{p.desc}</p>
